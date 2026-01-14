@@ -16,17 +16,22 @@ We transform complex requirements into elegant, reliable, and forward-thinking d
 All official communications, inquiries, proposals, contracts, and support from Neura Lumina will **only** be conducted through our official website:  
 **https://neuralumina.officialsite** (or verified subdomains/links clearly listed there).
 
-We will **never** initiate contact or request sensitive information via unsolicited email, direct messages, WhatsApp, Telegram, or any other unofficial channels.  
+We will **never** initiate contact or request sensitive information via unsolicited email, direct messages, or unofficial channels.  
 Always verify the sender and use only links originating from our official website.
 
 If you receive suspicious messages claiming to be from Neura Lumina, please do not respond and report them immediately.
 
-## Contact
+## Official Contact Channels
 
-Official inquiries only via the contact form on our website:  
-**https://neuralumina.officialsite**
+- **Website Contact Form** (recommended for all inquiries):  
+  https://neuralumina.officialsite
 
-General email (for reference only – not for direct project communication): neuralumina@gmail.com
+- **Official WhatsApp Business** (verified business account for direct messaging):  
+  +260 750 830 119  
+  *(Use only this number for Neura Lumina-related communication. Verify it matches our official website listing before messaging.)*
+
+- **General Email** (for reference only – not for direct project communication):  
+  neuralumina@gmail.com
 
 ## About This Repository
 
