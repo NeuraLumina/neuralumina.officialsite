@@ -206,27 +206,168 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.8)}}
 @keyframes techScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* NL LOGO */
-.nl-svg{width:36px;height:36px;flex-shrink:0}
+/* HAMBURGER MENU */
+.hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;width:36px;height:36px;cursor:none;padding:4px;flex-shrink:0}
+.hamburger span{display:block;height:1.5px;background:var(--text-primary);border-radius:2px;transition:transform .3s,opacity .3s,width .3s}
+.hamburger span:nth-child(2){width:70%}
+.hamburger.open span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0;width:0}
+.hamburger.open span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+@media(max-width:768px){
+  .hamburger{display:flex}
+}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);z-index:799;padding:16px 0;transition:background .4s}
+.mobile-menu.open{display:block}
+.mobile-menu ul{list-style:none;display:flex;flex-direction:column}
+.mobile-menu ul li a{display:block;padding:14px 20px;font-size:.82rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;color:var(--text-secondary);text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:color .25s,background .25s}
+.mobile-menu ul li a:hover{color:var(--accent);background:rgba(0,175,255,.03)}
+.mobile-menu-cta{padding:16px 20px}
+.mobile-menu-cta a{display:block;text-align:center;font-family:'Sora',sans-serif;font-size:.8rem;font-weight:500;letter-spacing:.12em;text-transform:uppercase;padding:12px 20px;background:var(--accent);color:#fff;border-radius:4px;text-decoration:none;transition:background .3s}
+.mobile-menu-cta a:hover{background:var(--accent-dark)}
+@media(max-width:420px){
+  .mobile-menu{top:56px}
+}
 
-/* RESPONSIVE */
+
+/* RESPONSIVE — TABLET */
 @media(max-width:1024px){
   .services-grid{grid-template-columns:1fr}
-  .why-grid{grid-template-columns:1fr;gap:60px}
+  .why-grid{grid-template-columns:1fr;gap:50px}
   .why-visual{position:static}
   .process-steps{grid-template-columns:1fr 1fr}
   .process-steps::before{display:none}
   .footer-grid{grid-template-columns:1fr 1fr}
 }
+
+/* RESPONSIVE — MOBILE (≤ 768px) */
 @media(max-width:768px){
-  nav{padding:0 24px}
+  /* Nav */
+  nav{padding:0 16px;height:60px}
   .nav-links{display:none}
-  .section{padding:70px 24px}
-  .hero{padding:120px 24px 70px}
-  .hero-metrics{gap:32px}
-  .footer-grid{grid-template-columns:1fr;gap:40px}
-  footer{padding:50px 24px 28px}
-  .cta-section{padding:80px 24px}
+  .nav-logo-name{font-size:.75rem;letter-spacing:.14em}
+  .nav-logo-sub{display:none}
+  .btn-nav{padding:7px 14px;font-size:.68rem}
+  .theme-toggle{width:36px;height:20px}
+  .theme-toggle::before{width:14px;height:14px}
+  [data-theme="light"] .theme-toggle::before{transform:translateX(16px)}
+
+  /* Hero */
+  .hero{padding:90px 16px 60px;min-height:auto}
+  .hero-tagline{font-size:.58rem;letter-spacing:.2em;gap:10px;margin-bottom:24px}
+  .hero-tagline::before,.hero-tagline::after{max-width:30px}
+  .hero-title{font-size:clamp(2.2rem,10vw,3.5rem);margin-bottom:6px}
+  .hero-title-sub{font-size:clamp(2.2rem,10vw,3.5rem);margin-bottom:24px}
+  .hero-desc{font-size:.9rem;margin-bottom:32px;padding:0 4px}
+  .hero-ctas{flex-direction:column;align-items:center;gap:12px}
+  .btn-primary,.btn-outline{width:100%;max-width:300px;justify-content:center;padding:13px 20px;font-size:.78rem}
+
+  /* Hero metrics — 2x2 grid */
+  .hero-metrics{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px 16px;
+    margin-top:40px;
+    padding-top:32px;
+  }
+  .hero-metric-val{font-size:1.7rem}
+  .hero-metric-label{font-size:.6rem;letter-spacing:.12em}
+
+  /* Section */
+  .section{padding:60px 16px}
+  .section-header{margin-bottom:40px}
+  .section-title{font-size:clamp(1.8rem,7vw,2.6rem)}
+  .section-sub{font-size:.85rem;margin-top:12px}
+  .section-label{font-size:.6rem;letter-spacing:.2em}
+
+  /* Services */
+  .services-grid{grid-template-columns:1fr;gap:1px}
+  .service-card{padding:32px 20px}
+  .service-num{font-size:2.5rem;top:24px;right:20px}
+  .service-icon{width:44px;height:44px;margin-bottom:20px}
+  .service-title{font-size:1rem}
+  .service-desc{font-size:.82rem}
+  .service-tags{gap:6px;margin-top:20px}
+  .tag{font-size:.58rem;padding:4px 9px}
+
+  /* Process */
+  .process-steps{grid-template-columns:1fr}
+  .process-steps::before{display:none}
+  .process-step{padding:0 0 32px}
+  .step-circle{width:56px;height:56px;font-size:1rem}
+  .step-num-wrap{width:56px;height:56px;margin-bottom:16px}
+  .step-title{font-size:.85rem}
+  .step-desc{font-size:.8rem}
+
+  /* Why Us */
+  .why-grid{grid-template-columns:1fr;gap:40px}
+  .why-visual{position:static}
+  .why-visual-box{padding:24px 20px}
+  .why-feature{gap:16px;padding:20px 0}
+  .why-feature-icon{width:38px;height:38px;flex-shrink:0}
+  .why-feature-title{font-size:.88rem}
+  .why-feature-desc{font-size:.8rem}
+  .why-feature::before{left:-16px}
+  .why-bottom-stats{grid-template-columns:1fr 1fr;gap:10px;margin-top:20px;padding-top:20px}
+  .why-stat{padding:14px 10px}
+  .why-stat-val{font-size:1.4rem}
+  .why-stat-label{font-size:.58rem}
+
+  /* Tech */
+  .tech{padding-top:60px;padding-bottom:60px}
+  .tech-item{padding:14px 20px;font-size:.68rem;letter-spacing:.1em}
+
+  /* CTA */
+  .cta-section{padding:70px 16px}
+  .cta-title{font-size:clamp(2rem,9vw,3rem)}
+  .cta-title-sub{font-size:clamp(2rem,9vw,3rem);margin-bottom:20px}
+  .cta-sub{font-size:.88rem;margin-bottom:32px}
+  .cta-precision{font-size:.58rem;letter-spacing:.2em;gap:8px;flex-wrap:wrap;justify-content:center}
+
+  /* Footer */
+  footer{padding:48px 16px 28px}
+  .footer-grid{grid-template-columns:1fr;gap:36px;padding-bottom:36px}
+  .footer-brand-desc{font-size:.8rem}
+  .footer-col-title{font-size:.68rem}
+  .footer-col-links a{font-size:.8rem}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center;padding-top:20px}
+  .footer-copy{font-size:.68rem}
+}
+
+/* RESPONSIVE — SMALL MOBILE (≤ 420px, covers Infinix Smart 6 ~360px) */
+@media(max-width:420px){
+  nav{padding:0 12px;height:56px}
+  .nav-logo-name{font-size:.7rem}
+  .btn-nav{padding:6px 12px;font-size:.65rem;letter-spacing:.08em}
+  .nl-svg{width:28px;height:28px}
+
+  .hero{padding:80px 12px 50px}
+  .hero-title{font-size:clamp(1.9rem,9vw,2.8rem)}
+  .hero-title-sub{font-size:clamp(1.9rem,9vw,2.8rem)}
+  .hero-desc{font-size:.82rem}
+  .btn-primary,.btn-outline{font-size:.72rem;padding:12px 16px;max-width:100%}
+  .hero-metrics{grid-template-columns:1fr 1fr;gap:16px 12px;padding-top:24px;margin-top:32px}
+  .hero-metric-val{font-size:1.5rem}
+  .hero-metric-label{font-size:.55rem;letter-spacing:.08em}
+
+  .section{padding:50px 12px}
+  .section-title{font-size:clamp(1.6rem,8vw,2.2rem)}
+
+  .service-card{padding:28px 16px}
+  .service-title{font-size:.95rem}
+
+  .why-visual-box{padding:20px 14px}
+  .why-bars{gap:14px}
+  .why-bar-top{font-size:.68rem}
+  .why-bottom-stats{gap:8px}
+  .why-stat{padding:12px 8px}
+  .why-stat-val{font-size:1.25rem}
+
+  .cta-section{padding:60px 12px}
+  .cta-title{font-size:clamp(1.8rem,8vw,2.5rem)}
+  .cta-title-sub{font-size:clamp(1.8rem,8vw,2.5rem)}
+
+  footer{padding:40px 12px 24px}
+  .footer-grid{gap:28px}
 }
 </style>
 </head>
@@ -263,8 +404,25 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
   <div class="nav-right">
     <div class="theme-toggle" id="themeToggle"></div>
     <button class="btn-nav" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get a Quote</button>
+    <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <ul>
+    <li><a href="#services" onclick="closeMenu()">Services</a></li>
+    <li><a href="#process" onclick="closeMenu()">Process</a></li>
+    <li><a href="#why" onclick="closeMenu()">Why Us</a></li>
+    <li><a href="#tech" onclick="closeMenu()">Technology</a></li>
+    <li><a href="#contact" onclick="closeMenu()">Contact</a></li>
+  </ul>
+  <div class="mobile-menu-cta">
+    <a href="mailto:neuralumina@gmail.com" onclick="closeMenu()">Get a Quote</a>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero" id="home">
@@ -612,6 +770,26 @@ footer{background:var(--bg2);border-top:1px solid var(--border);padding:60px 50p
 </footer>
 
 <script>
+// HAMBURGER MENU
+function toggleMenu() {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  menu.classList.toggle('open');
+  ham.classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('hamburger').classList.remove('open');
+}
+// Close menu on outside click
+document.addEventListener('click', e => {
+  const menu = document.getElementById('mobileMenu');
+  const ham = document.getElementById('hamburger');
+  if (menu.classList.contains('open') && !menu.contains(e.target) && !ham.contains(e.target)) {
+    closeMenu();
+  }
+});
+
 // CURSOR
 const dot = document.getElementById('curDot');
 const ring = document.getElementById('curRing');
